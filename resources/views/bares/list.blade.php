@@ -9,7 +9,7 @@
                 <div class="card-header">
                 	Dashboard
  	
-                	<a href="{{route('bar')}}" class="btn btn-primary">Crear Bar</a>
+                	<a href="{{route('barCrear')}}" class="btn btn-primary" >Crear Bar</a>
                 </div>
 
                 <div class="card-body">
@@ -41,10 +41,11 @@
                     				@endif
                     			</td>
                     			<td>
-                    			<button> Ver</button>                    				
+                    			<a> Ver</a>                    				
                     			</td>
                     			<td>
-                    			<button> Editar</button>                    				
+                    			<a class="btn btn-secondary" href="{{ route('barEdit', $bar->id) }}" > Editar</a>
+                    			<a class="btn btn-warning" href="{{ route('barDelete', $bar->id) }}"> Eliminar</a>                    				
                     			</td>
                     		</tr>
                     		@endforeach
