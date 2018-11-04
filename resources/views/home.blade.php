@@ -15,9 +15,53 @@
                     @endif
 
                     You are logged in!
+
+                    <p id="demo"></p>
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+    <script>
+        var x = document.getElementById("demo");
+        getLocation();
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                //navigator.geolocation.getCurrentPosition(showPosition);
+                showPosition(null);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            var coor = {};
+            //coor.latitude = position.coords.latitude;
+            //coor.longitude = position.coords.longitude;
+
+            coor.latitude = 4.7514133;
+            coor.longitude = -74.0908737;
+
+            // We use Axios to perform a POST request.
+            axios.post('{{ URL::to("search") }}', {
+                latitude: coor.latitude,
+                longitude: coor.longitude
+            })
+            .then(function(response) {
+                console.log(response);
+                resultEl.innerHTML = generateSuccessHTMLOutput(response);
+            });
+
+
+        }
+
+
+    </script>
 @endsection

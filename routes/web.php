@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/bares', 'BaresController@index')->name('bares');
 Route::get('/bar', 'BaresController@new')->name('bar');
 Route::post('/bar', 'BaresController@store')->name('barSave');
+Route::post('/search', 'HomeController@search')->name('searchBar');
