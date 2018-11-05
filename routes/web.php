@@ -25,4 +25,6 @@ Route::get('/bar/{id}/edit', 'BaresController@edit')->name('barEdit');
 Route::post('/bar/{id}/edit', 'BaresController@update')->name('barUpdate');
 Route::get('/bar/{id}', 'BaresController@destroy')->name('barDelete');
 Route::post('/search', 'HomeController@search')->name('searchBar');
+Route::post('/rate', 'HomeController@rate')->name('rateBar');
+Route::post('/actualizarBar', 'HomeController@actualizar')->name('actualizarBar');
 
